@@ -1,4 +1,6 @@
 Todos = new Meteor.Collection('todos');
+
+Lists = new Meteor.Collection('lists');
 Todos.insert({
 	name: "walk the dog",
 	completed: false,

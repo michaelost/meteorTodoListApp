@@ -71,3 +71,23 @@ Template.todosCount.helpers({
 		return Todos.find({completed: true}).count();
 	}
 })
+
+
+Template.addList.events({
+    'submit form': function(event){
+      event.preventDefault();
+      var listName = $('[name=listName]').val();
+      Lists.insert({
+          name: listName
+      });
+      $('[name=listName]').val('');
+    }
+});
+
+
+
+Template.lists.helpers({
+    'list': function(){
+        return Lists.find({}, {sort: {name: 1}});
+    }
+});
